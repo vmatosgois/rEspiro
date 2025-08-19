@@ -38,7 +38,7 @@ export default function Home() {
     setTableResult("");
 
     try {
-      const response = await fetch('http://localhost:8000/gerar', {
+      const response = await fetch('http://localhost:8000/report', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

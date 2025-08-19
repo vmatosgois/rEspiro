@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from models import SpirometryData
 from engine import main_processing
+import uvicorn
 
 app = FastAPI()
 
@@ -17,7 +18,7 @@ app.add_middleware(
     allow_headers=["*"],  # Permite todos os cabeçalhos
 )
 
-@app.post("/gerar")
+@app.post("/report")
 async def generate_table(data: SpirometryData):
     """
     Recebe dados de espirometria, processa-os e retorna uma tabela formatada.
