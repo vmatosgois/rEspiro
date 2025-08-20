@@ -8,6 +8,7 @@ app = FastAPI()
 
 origins = [
     "http://localhost:3000",  # O endereço do seu frontend Next.js
+    "https://respiro-brown.vercel.app"
 ]
 
 app.add_middleware(
