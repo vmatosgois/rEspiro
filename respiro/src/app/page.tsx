@@ -1,6 +1,7 @@
 "use client"; // roda no navegador do usuário
 
 import { useState } from "react";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export default function Home() {
   const [formData, setFormData] = useState({
