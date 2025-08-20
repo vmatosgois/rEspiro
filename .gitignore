@@ -14,6 +14,7 @@ venv/
 dist/
 build/
 *.spec
+.env
 
 # Node.js / Next.js
 node_modules/

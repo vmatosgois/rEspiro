@@ -2,14 +2,15 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from models import SpirometryData
 from engine import main_processing
+from load_dotenv import load_dotenv
 import uvicorn
+import os
 
 app = FastAPI()
 
-origins = [
-    "http://localhost:3000",  # O endereço do seu frontend Next.js
-    "https://respiro-brown.vercel.app"
-]
+load_dotenv()
+
+origins = os.getenv("CORS_ORIGINS").split(',')
 
 app.add_middleware(
     CORSMiddleware,
