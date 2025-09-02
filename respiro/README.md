@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# rEspiro
 
-## Getting Started
+rEspiro é um projeto Next.js com TypeScript, focado em servir como base para uma API e interface web moderna.
 
-First, run the development server:
+## Objetivo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+O projeto foi criado para servir de frontend da API rEspiro.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Estrutura
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **src/app/**  
+  - `layout.tsx`: Define o layout global da aplicação.
+  - `page.tsx`: Página principal.
+  - `globals.css`: Estilos globais.
+  - `favicon.ico`: Ícone do site.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **src/components/**  
+  - `LayoutClientWrapper.tsx`: Gerencia o layout do lado do cliente.
+  - `theme-provider.tsx`: Gerencia temas (dark/light).
+  - `ui/`: Componentes de interface reutilizáveis.
 
-## Learn More
+- **src/hooks/**  
+  - `use-device-type.ts`: Detecta tipo de dispositivo.
+  - `use-orientation.ts`: Detecta orientação da tela.
 
-To learn more about Next.js, take a look at the following resources:
+- **src/lib/**  
+  - `utils.ts`: Funções utilitárias.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **public/**  
+  Imagens e ícones estáticos.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **.next/**  
+  Build e cache gerados pelo Next.js.
 
-## Deploy on Vercel
+- **Configuração**  
+  - `.env`: Variáveis de ambiente.
+  - `eslint.config.mjs`: Configuração de lint.
+  - `next.config.ts`: Configuração do Next.js.
+  - `tsconfig.json`: Configuração do TypeScript.
+  - `postcss.config.js`: Configuração de CSS.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Como usar
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Instale as dependências:
+   ```bash
+   npm install
+   ```
+2. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
+3. O projeto estará disponível em [respiro-brown.vercel.app](http://respiro-brown.vercel.app).
+
+## Scripts
+
+- `dev`: Desenvolvimento
+- `build`: Build de produção
+- `start`: Produção
+- `lint`: Lint
