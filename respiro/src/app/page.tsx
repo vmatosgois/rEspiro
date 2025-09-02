@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from 'next/image';
-import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -169,11 +168,11 @@ export default function Home() {
             </div>
             
             <div className="flex gap-3 justify-center pt-6">
-                <Button type="submit" className="bg-blue-800" disabled={isLoading} variant="default">
+                <Button type="submit" disabled={isLoading} variant="default">
                   {isLoading ? 'Gerando...' : 'Concluir'}
 
                 </Button>
-                <Button type="button" className="bg-slate-900" variant= "default" onClick={handleCopy} disabled={ !tableResult || tableResult.length === 0 }>
+                <Button type="button" variant= "default" onClick={handleCopy} disabled={ !tableResult || tableResult.length === 0 }>
                   {copyButtonText}
                 </Button>
             </div>
