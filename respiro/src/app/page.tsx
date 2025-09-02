@@ -188,7 +188,7 @@ export default function Home() {
         {tableResult && (
           <div className="mt-8 p-4 rounded-lg flex-col items-center bg-input/30">
             <h2 className="text-xl font-bold mb-4 text-center">Resultado</h2>
-            <pre onClick={handleCopy} className="text-center text-sm whitespace-pre-wrap font-mono">{tableResult}</pre>
+            <pre onClick={handleCopy} className="text-center text-sm whitespace-pre font-mono">{tableResult}</pre>
           </div>
         )}
       </div>
