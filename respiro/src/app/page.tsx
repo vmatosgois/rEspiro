@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { ModeToggle } from '@/components/ui/modetoggle';
+import { toast } from "sonner";
+
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -39,6 +41,7 @@ export default function Home() {
       setTimeout(() => {
         setCopyButtonText("Copiar"); // Volta ao texto original após 2 segundos
       }, 2000);
+      toast("Resultado copiado para a área de transferência!");
     } catch (err) {
       console.error("Falha ao copiar:", err);
       setCopyButtonText("Erro!");
@@ -87,9 +90,11 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center p-6">
       <body>
-      <div className="w-full max-w-4xl p-8 rounded-lg shadow-xl">
-        <ModeToggle />
+      <div className="w-full max-w-4xl p-8 rounded-lg shadow-xl dark:border-1">
         <div className="flex items-center justify-center mb-4">
+          <div className="absolute top-4 left-4">
+            <ModeToggle />
+          </div>
           <Image
             src="/logo_respiro.png" 
             alt="logo"
@@ -112,9 +117,9 @@ export default function Home() {
             
             <div className="grid grid-cols-3 gap-x-8 gap-y-4 items-end">
               {/* Labels da Coluna */}
-              <Label> Pré-Broncodilatador</Label>
+              <Label variant="bold" size="md" className="border-b-2 justify-center"> Pré-Broncodilatador</Label>
               <Label></Label>
-              <Label> Pós-Broncodilatador</Label>
+              <Label variant="bold" size="md" className="border-b-2 justify-center"> Pós-Broncodilatador</Label>
 
               {/* Linha CVF */}
               <div>
@@ -168,11 +173,11 @@ export default function Home() {
             </div>
             
             <div className="flex gap-3 justify-center pt-6">
-                <Button type="submit" disabled={isLoading} variant="default">
+                <Button type="submit" disabled={isLoading}>
                   {isLoading ? 'Gerando...' : 'Concluir'}
 
                 </Button>
-                <Button type="button" variant= "default" onClick={handleCopy} disabled={ !tableResult || tableResult.length === 0 }>
+                <Button type="button" onClick={handleCopy} disabled={ !tableResult || tableResult.length === 0 }>
                   {copyButtonText}
                 </Button>
             </div>
@@ -181,13 +186,18 @@ export default function Home() {
 
         {error && <div className="mt-6 text-center text-red-500">{error}</div>}
         {tableResult && (
-          <div className="mt-8 p-4 rounded-lg flex-col items-center">
+          <div className="mt-8 p-4 rounded-lg flex-col items-center bg-input/30">
             <h2 className="text-xl font-bold mb-4 text-center">Resultado</h2>
-            <pre className="text-center text-sm whitespace-pre-wrap font-mono">{tableResult}</pre>
+            <pre onClick={handleCopy} className="text-center text-sm whitespace-pre-wrap font-mono">{tableResult}</pre>
           </div>
         )}
       </div>
       </body>
+
+      <footer className="mt-8 text-center text-sm text-muted-foreground">
+        Desenvolvido por <a target="_blank" href="https://lattes.cnpq.br/8288344655179899">Victor Matos</a> para a <a target="_blank" href="https://www.ufs.br/">Universidade Federal de Sergipe</a>.<br />
+        rEspiro é uma marca em processo de registro. Todos os direitos reservados.
+      </footer>
     </main>
   );
 }

@@ -25,12 +25,18 @@ export function ModeToggle() {
 
   return (
     <Button onClick={ToggleHandler} variant="outline" size="icon">
-      {currentTheme === "dark" ? (
-        <Sun className="h-[1.2rem] w-[1.2rem] "/>
-      ) : (
-        <Moon className="h-[1.2rem] w-[1.2rem] "/>
-      )}
-      <span className="sr-only">Toggle theme</span>
+      <span className="relative w-[1.8rem] h-[1.8rem] flex items-center justify-center">
+        {currentTheme === "dark" ? (
+          <span className="rotate-90 scale-0 !transition-all duration-500 dark:rotate-0 dark:scale-100 transform">
+            <Sun />
+          </span>
+        ) : (
+          <span className="rotate-0 scale-100 !transition-all duration-500 dark:rotate-100 dark:scale-0 transform">
+            <Moon/>
+          </span>
+        )}
+        <span className="sr-only">Toggle theme</span>
+      </span>
     </Button>
   )
 }
