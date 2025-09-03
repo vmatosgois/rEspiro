@@ -113,8 +113,9 @@ export default function Home() {
           />
           <h1 className="text-3xl font-bold text-center mb-2">rEspiro</h1>
         </div>
-        <p className="text-center mb-5">Para começar, preencha os campos abaixo. <br/>
-          Ao Concluir, clique no botão "Copiar" ou na tabela para copiar para a área de transferência. <br/>
+        <p className="text-center mb-5">
+          Para começar, preencha os campos abaixo. <br/>
+          Ao Concluir, clique no botão &quot;Copiar&quot; ou na tabela para copiar para a área de transferência. <br/>
           Legenda: NI = Não Informado.
         </p>
 

@@ -7,13 +7,10 @@ import { ThemeProvider } from "@/components/theme-provider";
 import {
   AlertDialog,
   AlertDialogAction,
-  AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
-  AlertDialogFooter,
   AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
+  AlertDialogTitle
 } from "@/components/ui/alert-dialog"
 import { useState } from "react";
 import { Smartphone } from "lucide-react";
