@@ -1,10 +1,11 @@
-"use client"; // roda no navegador do usuário
+"use client";
 
 import { useState } from "react";
 import Image from 'next/image';
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { Loader2Icon } from "lucide-react"
 import { ModeToggle } from '@/components/ui/modetoggle';
 import { toast } from "sonner";
 
@@ -34,6 +35,14 @@ export default function Home() {
 
   const [copyButtonText, setCopyButtonText] = useState("Copiar");
 
+  /**
+   * Função que copia o resultado da tabela para área de transferência
+   * 
+   * Se a operação for bem sucedida, muda o texto do botão para dar feedback
+   * e volta ao texto original após 2 segundos.
+   * Se a operação falhar, muda o texto do botão para "Erro!" e volta ao
+   * texto original após 2 segundos.
+   */
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(tableResult);
@@ -104,7 +113,10 @@ export default function Home() {
           />
           <h1 className="text-3xl font-bold text-center mb-2">rEspiro</h1>
         </div>
-        <p className="text-center mb-8">Para começar, preencha os campos abaixo.</p>
+        <p className="text-center mb-5">Para começar, preencha os campos abaixo. <br/>
+          Ao Concluir, clique no botão "Copiar" ou na tabela para copiar para a área de transferência. <br/>
+          Legenda: NI = Não Informado.
+        </p>
 
         <form onSubmit={handleSubmit}>
           <div className="space-y-6">
@@ -117,9 +129,9 @@ export default function Home() {
             
             <div className="grid grid-cols-3 gap-x-8 gap-y-4 items-end">
               {/* Labels da Coluna */}
-              <Label variant="bold" size="md" className="border-b-2 justify-center"> Pré-Broncodilatador</Label>
+              <Label variant="bold" size="md" className="border-b-2 border-gray-300 dark:border-gray-700 justify-center"> Pré-Broncodilatador</Label>
               <Label></Label>
-              <Label variant="bold" size="md" className="border-b-2 justify-center"> Pós-Broncodilatador</Label>
+              <Label variant="bold" size="md" className="border-b-2 border-gray-300 dark:border-gray-700 justify-center"> Pós-Broncodilatador</Label>
 
               {/* Linha CVF */}
               <div>
@@ -174,7 +186,14 @@ export default function Home() {
             
             <div className="flex gap-3 justify-center pt-6">
                 <Button type="submit" disabled={isLoading}>
-                  {isLoading ? 'Gerando...' : 'Concluir'}
+                  {isLoading ? (
+                    <>
+                      <Loader2Icon className="animate-spin"/>
+                      Gerando...
+                    </>
+                  ) : (
+                    'Concluir'
+                  )}
 
                 </Button>
                 <Button type="button" onClick={handleCopy} disabled={ !tableResult || tableResult.length === 0 }>
