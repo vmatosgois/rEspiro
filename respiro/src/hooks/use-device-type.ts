@@ -1,5 +1,16 @@
 import { useState, useEffect } from 'react';
 
+/**
+ * Hook para detectar o tipo de dispositivo que est  acessando a aplica o
+ * (mobile ou desktop). Útil para ajustar o layout e a experiência do
+ * usuário de acordo com o dispositivo.
+ *
+ * O hook verifica:
+ * - Se o dispositivo é um agente de usuário de um navegador móvel
+ * - Se o dispositivo tem um ponteiro "coarse" (indicando que é um dispositivo
+ *   de toque)
+ */
+
 type DeviceType = 'mobile' | 'desktop';
 
 const isBrowser = () => typeof window !== 'undefined';

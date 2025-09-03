@@ -1,5 +1,15 @@
 import { useState, useEffect } from 'react';
 
+/**
+ * Hook para detectar a orienta o do dispositivo.
+ * Retorna se o dispositivo está em modo retrato ou paisagem.
+ * 
+ * O hook verifica a orienta o do dispositivo no momento da inicializa o e
+ * também ao redimensionar o viewport com o evento de resize.
+ * 
+ * Retorna "portrait" ou "landscape" de acordo com a orienta o do dispositivo.
+ */
+
 type Orientation = 'portrait' | 'landscape';
 
 function getOrientation(): Orientation {

@@ -18,6 +18,20 @@ import {
 import { useState } from "react";
 import { Smartphone } from "lucide-react";
 
+/**
+ * Este componente é responsável por renderizar o wrapper principal da aplicação,
+ * que é responsável por gerenciar o estado do tema e renderizar o diálogo de alerta
+ * para dispositivos móveis em modo retrato.
+ *
+ * Ele usa os hooks useOrientation e useDeviceType para detectar o tipo de dispositivo
+ * e a orienta o do dispositivo.
+ *
+ * Se o dispositivo for um smartphone em modo retrato, ele renderiza um diálogo de alerta
+ * solicitando que o usuário gire o dispositivo.
+ *
+ * Caso contrário, ele renderiza o conteúdo passado como props.children.
+ */
+
 export function LayoutClientWrapper({ children }: { children: React.ReactNode }) {
   const orientation = useOrientation();
   const deviceType = useDeviceType();
