@@ -108,8 +108,8 @@ export default function Home() {
             src="/logo_respiro.png" 
             alt="logo"
             width={75}  
-            height={75} 
-            className="inline-block mr-2"
+            height={75}
+            className="inline-block mr-2 w-10 h-10 md:w-12 md:h-12"
           />
           <h1 className="text-3xl font-bold text-center mb-2">rEspiro</h1>
         </div>
@@ -130,9 +130,9 @@ export default function Home() {
             
             <div className="grid grid-cols-3 gap-x-8 gap-y-4 items-end">
               {/* Labels da Coluna */}
-              <Label variant="bold" size="md" className="border-b-2 border-gray-300 dark:border-gray-700 justify-center"> Pré-Broncodilatador</Label>
+              <Label variant="bold" className="border-b-2 border-gray-300 dark:border-gray-700 justify-center">Pré-Broncodilatador</Label>
               <Label></Label>
-              <Label variant="bold" size="md" className="border-b-2 border-gray-300 dark:border-gray-700 justify-center"> Pós-Broncodilatador</Label>
+              <Label variant="bold" className="border-b-2 border-gray-300 dark:border-gray-700 justify-center">Pós-Broncodilatador</Label>
 
               {/* Linha CVF */}
               <div>

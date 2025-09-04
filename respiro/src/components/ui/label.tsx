@@ -15,10 +15,10 @@ const labelVariants = cva(
         bold: "font-bold",
       },
       size: {
-        xs: "text-xm",
-        sm: "text-sm",
-        md: "text-md",
-        lg: "text-lg",
+        xs: "text-xs",
+        sm: "text-xs md:text-sm",
+        base: "text-sm md:text-base",
+        lg: "text-base md:text-lg",
       },
     },
     defaultVariants: {
